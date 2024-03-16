@@ -20,7 +20,7 @@ class CalendarsController < ApplicationController
 
   def get_Week
     # 役割の内容を記述することが重要（week_days_labels:曜日のラベルが格納されていることを示す）
-    week_days_labels = ['(日)','(月)','(火)','(水)','(木)','(金)','(土)']
+    wday = ['(日)','(月)','(火)','(水)','(木)','(金)','(土)']
   
     # Dateオブジェクトは、日付を保持しています。下記のように`.today.day`とすると、今日の日付を取得できます。
     @todays_date = Date.today
@@ -36,7 +36,7 @@ class CalendarsController < ApplicationController
         today_plans.push(plan.plan) if plan.date == @todays_date + x
       end
       # 変数名の役割がわかる内容で示すことが重要(days→das_info:１日分の情報を格納している。)
-      das_info = { month:  (@todays_date + x).month, date:  (@todays_date+x).day, plans:  today_plans}
+      days = { month:  (@todays_date + x).month, date:  (@todays_date+x).day, plans:  today_plans}
       @week_days.push(days)
     end
 
