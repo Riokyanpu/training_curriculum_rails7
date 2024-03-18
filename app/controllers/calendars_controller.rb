@@ -2,7 +2,7 @@ class CalendarsController < ApplicationController
 
   # １週間のカレンダーと予定が表示されるページ
   def index
-    getWeek
+    get_Week
     @plan = Plan.new
   end
 
@@ -20,7 +20,7 @@ class CalendarsController < ApplicationController
 
   def get_Week
     # 役割の内容を記述することが重要（week_days_labels:曜日のラベルが格納されていることを示す）
-    wday = ['(日)','(月)','(火)','(水)','(木)','(金)','(土)']
+    wdays = ['(日)','(月)','(火)','(水)','(木)','(金)','(土)']
   
     # Dateオブジェクトは、日付を保持しています。下記のように`.today.day`とすると、今日の日付を取得できます。
     @todays_date = Date.today
